@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+        ComicCraft AI
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div class="header-inner">
+
+        <a
+            href="/"
+            class="logo"
+        >
+            ComicCraft AI
+        </a>
+
+        <span class="header-tagline">
+            Turn ideas into comics
+        </span>
+
+    </div>
+
+</header>
+
+
+<main class="main-container">
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<footer class="site-footer">
+
+    <p>
+        ComicCraft AI • FastAPI + Gemini + Local AI
+    </p>
+
+</footer>
+
+</body>
+</html>

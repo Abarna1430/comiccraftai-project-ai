@@ -1,0 +1,96 @@
+﻿{% extends "base.html" %}
+
+{% block title %}
+{{ outline.title }} - ComicCraft AI
+{% endblock %}
+
+{% block content %}
+
+<section class="comic-page">
+
+    <header class="preview-header">
+
+        <span class="badge">
+            YOUR COMIC IS READY
+        </span>
+
+        <h1>
+            {{ outline.title }}
+        </h1>
+
+        <p>
+            {{ outline.summary }}
+        </p>
+
+        <div class="actions">
+
+            <a
+                href="{{ pdf_url }}"
+                download
+                class="primary-button"
+                id="download-comic-btn"
+                onclick="setTimeout(function(){ window.location.href='/export-success?pdf_url={{ pdf_url }}'; }, 1000);"
+            >
+                📥 Download Your Comic as PDF
+            </a>
+
+            <a
+                href="/"
+                class="secondary-button"
+            >
+                Create Another
+            </a>
+
+        </div>
+
+    </header>
+
+    <div class="comic-strip">
+
+        {% for panel in panels %}
+
+        <article class="comic-panel">
+
+            <div class="panel-number">
+                Panel {{ panel.panel_number }}
+            </div>
+
+            <div class="panel-frame">
+                <img
+                    src="{{ image_urls[loop.index0] }}"
+                    alt="Comic panel {{ panel.panel_number }}"
+                    class="comic-image"
+                >
+            </div>
+
+            <div class="panel-content">
+
+                {% if panel.narration %}
+                <div class="narration">
+                    <strong>Narration:</strong> {{ panel.narration }}
+                </div>
+                {% endif %}
+
+                <div class="scene">
+                    <strong>Scene:</strong>
+                    <em>{{ panel.scene_description }}</em>
+                </div>
+
+                {% if panel.dialogue %}
+                <div class="dialogue">
+                    <strong>Dialogue:</strong>
+                    <p>{{ panel.dialogue }}</p>
+                </div>
+                {% endif %}
+
+            </div>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

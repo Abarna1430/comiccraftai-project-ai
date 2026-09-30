@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block title %}
+ComicCraft AI - Create
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            GENERATIVE AI COMIC CREATOR
+        </span>
+
+        <h1>
+            Create Your Own
+            <span>AI Comic</span>
+        </h1>
+
+        <p>
+            Enter an idea and ComicCraft AI will turn it into
+            a five-panel illustrated comic with story,
+            dialogue, narration and downloadable PDF.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="form-card">
+
+    <form
+        action="/generate"
+        method="post"
+    >
+
+        <div class="form-group">
+
+            <label for="story_prompt">
+                Story Prompt
+            </label>
+
+            <textarea
+                id="story_prompt"
+                name="story_prompt"
+                rows="5"
+                required
+                placeholder="Example: A brave fox discovers a mysterious glowing tree in an enchanted forest."
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-grid">
+
+            <div class="form-group">
+
+                <label for="character_name">
+                    Character
+                </label>
+
+                <input
+                    id="character_name"
+                    name="character_name"
+                    value="Milo"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="setting">
+                    Setting
+                </label>
+
+                <input
+                    id="setting"
+                    name="setting"
+                    value="Enchanted Forest"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="tone">
+                    Tone
+                </label>
+
+                <select
+                    id="tone"
+                    name="tone"
+                >
+                    <option>Dramatic</option>
+                    <option>Funny</option>
+                    <option>Adventurous</option>
+                    <option>Mysterious</option>
+                    <option>Emotional</option>
+                    <option>Dark</option>
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="art_style">
+                    Art Style
+                </label>
+
+                <select
+                    id="art_style"
+                    name="art_style"
+                >
+                    <option>Comic Book</option>
+                    <option>Manga</option>
+                    <option>Cartoon</option>
+                    <option>Fantasy Illustration</option>
+                    <option>Watercolor</option>
+                    <option>Graphic Novel</option>
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="primary-button"
+        >
+            Generate Comic
+        </button>
+
+    </form>
+
+</section>
+
+
+<section class="features">
+
+    <div class="feature-card">
+
+        <h3>
+            01
+        </h3>
+
+        <h2>
+            AI Story
+        </h2>
+
+        <p>
+            Gemini transforms your idea into a structured
+            five-panel story.
+        </p>
+
+    </div>
+
+
+    <div class="feature-card">
+
+        <h3>
+            02
+        </h3>
+
+        <h2>
+            AI Artwork
+        </h2>
+
+        <p>
+            A free local AI model generates original artwork for every panel.
+        </p>
+
+    </div>
+
+
+    <div class="feature-card">
+
+        <h3>
+            03
+        </h3>
+
+        <h2>
+            PDF Export
+        </h2>
+
+        <p>
+            Download your finished comic as a PDF.
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
